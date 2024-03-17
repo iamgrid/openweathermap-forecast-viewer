@@ -1,0 +1,28 @@
+{
+	"name": "openweathermap-forecast-viewer",
+	"version": "0.1.0",
+	"private": true,
+	"scripts": {
+		"dev": "npm run openBrowser && next dev",
+		"openBrowser": "start http://localhost:3000/openweathermap-forecast-viewer",
+		"build": "next build",
+		"start": "next start",
+		"lint": "next lint"
+	},
+	"dependencies": {
+		"@tanstack/react-query": "^5.28.4",
+		"@tanstack/react-query-devtools": "^5.28.4",
+		"next": "14.1.3",
+		"react": "^18",
+		"react-dom": "^18"
+	},
+	"devDependencies": {
+		"@tanstack/eslint-plugin-query": "^5.27.7",
+		"@types/node": "^20",
+		"@types/react": "^18",
+		"@types/react-dom": "^18",
+		"eslint": "^8",
+		"eslint-config-next": "14.1.3",
+		"typescript": "^5"
+	}
+}

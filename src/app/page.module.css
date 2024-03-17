@@ -1,0 +1,32 @@
+.main {
+	margin: 24px 12px;
+}
+
+@media screen and (min-width: 1000px) {
+  .main {
+    display: grid;
+    justify-content: center;
+  }
+}
+
+.main--loading, .main--errored {
+  margin-top: 24px;
+}
+
+.main--loading {
+  text-align: center;
+  font-style: italic;
+  color: var(--c-text-secondary);
+}
+
+.main--errored {
+  text-align: center;
+  font-style: italic;
+  color: red;
+}
+
+.page-header {
+  font-size: 19px;
+  margin-bottom: 12px;
+  text-align: center;
+}
