@@ -20,6 +20,16 @@ function MWTIconSection({
 }: TMWTIconSectionProps) {
 	const snowClass =
 		snowAmount > 0 ? styles["icon-section__precipitation-display--snow"] : "";
+	let isNightTime = false;
+	if (
+		rowData.weather[0] instanceof Object &&
+		"icon" in rowData.weather[0] &&
+		typeof rowData.weather[0].icon === "string"
+	) {
+		if (rowData.weather[0].icon.endsWith("n")) {
+			isNightTime = true;
+		}
+	}
 
 	return (
 		<td className={styles["icon-section"]}>
@@ -32,7 +42,11 @@ function MWTIconSection({
 					height={50}
 				/>
 			</div> */}
-				<div className={styles["icon-section__custom-icon"]}>
+				<div
+					className={`${styles["icon-section__custom-icon"]} ${
+						isNightTime ? styles["icon-section__custom-icon--night"] : ""
+					}`}
+				>
 					<Image
 						alt={rowData.weather[0].description}
 						src={getCustomWeatherIconUrl(rowData.weather[0].id)}

@@ -97,6 +97,10 @@ td.day-header {
 	border-radius: 5px;
 }
 
+.icon-section__custom-icon--night img {
+	filter: sepia(100%) brightness(79.2%) contrast(75.8%) hue-rotate(160deg) grayscale(15%);
+}
+
 .icon-section__precipitation-display {
 	text-align: center;
 	font-size: 10px;
