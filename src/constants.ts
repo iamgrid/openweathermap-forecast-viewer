@@ -1,3 +1,5 @@
+export const basePath = "/openweathermap-forecast-viewer";
+
 // Paks, Hungary
 export const defaultCoordinates = {
 	latitude: 46.62,

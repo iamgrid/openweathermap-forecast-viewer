@@ -1,3 +1,5 @@
+import { basePath } from "./constants";
+
 const CHAR_RAIN = "💧";
 const CHAR_SNOW = "❄️";
 
@@ -27,9 +29,25 @@ export function displayPrecipitation(rain: number, snow: number): string {
 	return reply;
 }
 
-export function getWeatherIconUrl(icon: string): string {
-	return `https://openweathermap.org/img/wn/${icon}.png`;
+const customIconsExistFor: number[] = [
+	200, 201, 202, 210, 211, 212, 221, 230, 231, 232, 300, 301, 302, 310, 311,
+	312, 313, 314, 321, 500, 501, 502, 503, 504, 511, 520, 521, 522, 531, 600,
+	601, 602, 611, 612, 613, 615, 616, 620, 621, 622, 701, 711, 721, 731, 741,
+	751, 761, 800, 801, 802, 803, 804,
+];
+
+export function getCustomWeatherIconUrl(weatherId: number): string {
+	let iconStr: string = "na";
+	if (customIconsExistFor.includes(weatherId)) {
+		iconStr = String(weatherId);
+	}
+
+	return `${basePath}/static/custom_weather_icons/${iconStr}.png`;
 }
+
+// export function getWeatherIconUrl(icon: string): string {
+// 	return `https://openweathermap.org/img/wn/${icon}.png`;
+// }
 
 export function renderWindDirection(deg: number): string {
 	if (deg >= 0 && deg < 11.25) {

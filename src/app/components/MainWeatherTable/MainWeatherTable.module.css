@@ -68,7 +68,16 @@ td.day-header {
 	font-weight: bold;
 }
 
-.icon-section__icon {
+.icon-section__wrapper {
+	display: grid;
+	grid-template-rows: auto auto;
+	gap: 3px;
+	justify-items: center;
+	height: 100%;
+	transform: translateY(2px);
+}
+
+/* .icon-section__icon {
 	background-color: #a0a0a0;
 	border: 1px solid #a7a7a7;
 	border-radius: 5px;
@@ -76,10 +85,25 @@ td.day-header {
 
 .icon-section__icon img {
 	display: block;
+} */
+
+.icon-section__custom-icon {
+	border: 1px solid #686868;
+	border-radius: 6px;
+}
+
+.icon-section__custom-icon img {
+	display: block;
+	border-radius: 5px;
 }
 
 .icon-section__precipitation-display {
 	text-align: center;
 	font-size: 10px;
 	filter: grayscale(100%);
+}
+
+.icon-section__precipitation-display--snow {
+	font-size: 9px;
+	letter-spacing: -1px;
 }

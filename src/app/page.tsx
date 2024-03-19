@@ -3,7 +3,7 @@
 import styles from "./page.module.css";
 import { useQuery, useIsFetching } from "@tanstack/react-query";
 import { tokens } from "../tokens";
-import { defaultCoordinates } from "@/constants";
+import { defaultCoordinates } from "../constants";
 import MainWeatherTable from "./components/MainWeatherTable/MainWeatherTable";
 
 export interface TOWM2Point5ForecastListEntry {
