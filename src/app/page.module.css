@@ -2,11 +2,9 @@
 	margin: 24px 12px;
 }
 
-@media screen and (min-width: 1000px) {
-  .main {
-    display: grid;
-    justify-content: center;
-  }
+.main {
+  display: grid;
+  justify-content: center;
 }
 
 .main--loading, .main--errored {

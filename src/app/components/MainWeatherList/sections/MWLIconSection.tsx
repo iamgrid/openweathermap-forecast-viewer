@@ -1,23 +1,23 @@
 import { TOWM2Point5ForecastListEntry } from "@/app/page";
 import Image from "next/image";
-import styles from "./MainWeatherTable.module.css";
+import styles from "../MainWeatherList.module.css";
 import {
 	// getWeatherIconUrl,
 	displayPrecipitation,
 	getCustomWeatherIconUrl,
 } from "@/helpers";
 
-interface TMWTIconSectionProps {
+interface TMWLIconSectionProps {
 	rowData: TOWM2Point5ForecastListEntry;
 	rainAmount: number;
 	snowAmount: number;
 }
 
-function MWTIconSection({
+function MWLIconSection({
 	rowData,
 	rainAmount,
 	snowAmount,
-}: TMWTIconSectionProps) {
+}: TMWLIconSectionProps) {
 	const snowClass =
 		snowAmount > 0 ? styles["icon-section__precipitation-display--snow"] : "";
 	let isNightTime = false;
@@ -32,7 +32,7 @@ function MWTIconSection({
 	}
 
 	return (
-		<td className={styles["icon-section"]}>
+		<div className={`${styles["mwl-section"]} ${styles["mwl-section--icon"]}`}>
 			<div className={styles["icon-section__wrapper"]}>
 				{/* <div className={styles["icon-section__icon"]}>
 				<Image
@@ -64,8 +64,8 @@ function MWTIconSection({
 					{displayPrecipitation(rainAmount, snowAmount)}
 				</div>
 			</div>
-		</td>
+		</div>
 	);
 }
 
-export default MWTIconSection;
+export default MWLIconSection;

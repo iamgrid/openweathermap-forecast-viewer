@@ -4,7 +4,7 @@ import styles from "./page.module.css";
 import { useQuery, useIsFetching } from "@tanstack/react-query";
 import { tokens } from "../tokens";
 import { defaultCoordinates } from "../constants";
-import MainWeatherTable from "./components/MainWeatherTable/MainWeatherTable";
+import MainWeatherList from "./components/MainWeatherList/MainWeatherList";
 
 export interface TOWM2Point5ForecastListEntry {
 	dt: number;
@@ -76,10 +76,14 @@ export default function Home() {
 	} = useQuery<TOWM2Point5ForecastResponse>({
 		queryKey: ["WEATHER_DATA"],
 		queryFn: async () => {
+			const functionSignature = "page.tsx@weatherData useQuery queryFn()";
 			const response = await fetch(
 				`https://api.openweathermap.org/data/2.5/forecast?lat=${defaultCoordinates.latitude}&lon=${defaultCoordinates.longitude}&units=metric&appid=${tokens.openWeatherMap}`
 			);
 			const data = await response.json();
+
+			console.log(functionSignature, { data });
+
 			return data;
 		},
 	});
@@ -105,7 +109,7 @@ export default function Home() {
 			<h1 className={styles["page-header"]}>
 				Weather forecast for {weatherData.city.name}, {weatherData.city.country}
 			</h1>
-			<MainWeatherTable weatherData={weatherData.list} />
+			<MainWeatherList weatherData={weatherData.list} />
 		</main>
 	);
 }
